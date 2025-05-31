@@ -8,85 +8,85 @@
 <body>
     <h1>Вступ до JavaScript</h1>
     <p>
-        У JavaScript ' ; ' вживается як роздилник ( на видминну ряду мов , де це завершення команди ). 
-        Видповидно , не е обовязковою и може заминюватись розивом рядка. У той же час,
-        можливи неочикувана повединка , коли одна команда , роздилена на декилька рядкив , перетворюется на ризни.
-        Для запобигання цього вважается традицийним а) брати таки интструкции у дужки, б) не розривати рядки так , щоб команда була завершеною
+        У JavaScript ';' вживається як роздільник (на відміну від ряду мов, де це завершення команди). 
+        Відповідно, не є обов’язковою і може замінюватися розривом рядка. У той же час,
+        можлива неочікувана поведінка, коли одна команда, розділена на декілька рядків, перетворюється на різні.
+        Для запобігання цього вважається традиційним: а) брати такі інструкції у дужки, б) не розривати рядки так, щоб команда була завершеною.
     </p>
     <p>Неправильно: <code> return 3<br>+ 2;</code></p>
     <p>Неправильно: <code> return <br>3+ 2;</code></p>
     <p>Правильно: <code> return (3<br>+ 2);</code></p>
     <p>Правильно: <code> return 3+<br> 2;</code></p>
+
     <p id="out"></p>
     <p id="out-block"></p>
     <p id="out-block-2"></p>
     <p id="out-block-3"></p>
+
     <script>
-        // Введення / виведення 
-        console.log("Hello,World!"); // а) консоль розробника - только для Debug 
-        // alert("Hello, world!");  // б ) модальни диалоги ( викна )
-        // в елементи сторинки 
-        out.innerText = "Hello,World!";  // якщо елемент мае ID , то утворюется зминна з таким саме именем . 
-        // Данний пидхид вважается не рекомендованим , тому идентификатори прийнято задавати у kebab-style 
+        // Виведення у консоль
+        console.log("Hello, World!");
+
+        // Виведення у елемент
+        document.getElementById("out").innerText = "Hello, World!";
+
         const outBlock = document.getElementById("out-block");
-        if(outBlock) { // Неявне перетворення до логичного(Bool) типу .  !!outBlock - явне перетворення
-            outBlock.innerText = "Hello , World!";  
-        } 
-        else{
-            throw " Element #out-block not found"; // Динамична типизация , зокрема , дозволяе передавати у throw довильний обьект  
+        if (outBlock) {
+            outBlock.innerText = "Hello, World!";
+        } else {
+            throw "Element #out-block not found";
         }
 
-        // string
-        x = "the string";  // global змина , видима в усий сторинци
-        x = 'second value'; // видминностей миж '' "" немае 
-        y = `The ${x}`; // интерполявиний рядок ( string )
-        // numbers
-        n = 100500;                  // int
-        n = 1000000000000000000000n; // big number   
+        // Строки
+        let x = "the string";
+        x = 'second value';
+        let y = `The ${x}`;
+
+        // Числа
+        let n = 100500;
+        n = 1000000000000000000000n;
         n = 2n ** 256n;
-        outBlock.innerHTML = `2<sup>256</sup> = ${n}`; 
-        // нецили числа - 56bit на число , решта - спецзначення Nan, -0, Infinity...
-        // !! загалом 64bit , що можна неправильно сприймати при сумисности
-        // з иншими мовами , зокрема SQL 
-        // + традицийне округлення нескинченних дробив ( у бинарний системи )
-        // 0.1 + 0.2 -> 0.30000000000000004 
-        // 0.1 + 0.2 == 0.3 -> false
+        outBlock.innerHTML = `2<sup>256</sup> = ${n}`;
 
-        // оператори ( управлиння ) 
-        if(y.length % 2 == 0){
+        // Перевірка довжини строки
+        if (y.length % 2 === 0) {
             outBlock.innerHTML += `<br/>Довжина рядка '${y}' парна`;
-        }
-        else{
+        } else {
             outBlock.innerHTML += `<br/>Довжина рядка '${y}' непарна`;
         }
-        // switch , ternary , for(i), while
-        let arr = [1,2,3,4,5]; // let - з локализациею ( не видеме за блоком)
+
+        // Масив і цикл
+        let arr = [1, 2, 3, 4, 5];
         outBlock.innerHTML += '<br/>';
-        for(let element of arr ) { // for-of -> foreach
+        for (let element of arr) {
             outBlock.innerHTML += element + ' ';
         }
-        outBlock.innerHTML += '<br/>'
+        outBlock.innerHTML += '<br/>';
         arr.forEach(element => outBlock.innerHTML += element + ' ');
 
+        // Виведення таблиці (Варіант 1)
         const outBlock2 = document.getElementById("out-block-2");
-        if(!outBlock2) throw "Elenment #out-block-2 not found";
-        // Исправленное создание таблицы
-        outBlock2.innerHTML = "<table><tr><th>индекс</th><th>значення</th></tr>";
-        for(let i = 0; i < arr.length; i++){
-            outBlock2.innerHTML += `<tr><td>${i}</td><td>${arr[i]}</td></tr>`;
-        }
-        outBlock2.innerHTML += "</table>";
+        if (!outBlock2) throw "Element #out-block-2 not found";
 
-        // Вимога - форматувати HTML як окремий ресурс ( зминну ) и тильки повний код додавати до сторинки 
-        var prefix = prompt("Prefix for values");
-        const outBlock3 = document.getElementById("out-block-3");
-        if(!outBlock3) throw "Elenment #out-block-3 not found";
-        var html = "<table><tr><th>индекс</th><th>значення</th></tr>";
-        for(let i = 0; i < arr.length; i++){
-            html += `<tr><td>${i}</td><td>${prefix + arr[i]}</td></tr>`;
+        let html2 = "<table border='1'><tr><th>індекс</th><th>значення</th></tr>";
+        for (let i = 0; i < arr.length; i++) {
+            html2 += `<tr><td>${i}</td><td>${arr[i]}</td></tr>`;
         }
-        html += "</table>";
-        outBlock3.innerHTML = html;
+        html2 += "</table>";
+        outBlock2.innerHTML = html2;
+
+        var prefix = prompt("Prefix for value");
+
+        // Виведення таблиці (Варіант 2)
+        const outBlock3 = document.getElementById("out-block-3");
+        if (!outBlock3) throw "Element #out-block-3 not found";
+
+        let html3 = "<table border='1'><tr><th>індекс</th><th>значення</th></tr>";
+        for (let i = 0; i < arr.length; i++) {
+            html3 += `<tr><td>${i}</td><td>${arr[i]}</td></tr>`;
+        }
+        html3 += "</table>";
+        outBlock3.innerHTML = html3;
     </script>
 </body>
 </html>

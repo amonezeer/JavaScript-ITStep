@@ -1,0 +1,18 @@
+.container {
+            display: flex;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+.product {
+            border: 2px solid lightgray;
+            margin: 5px;
+            padding: 5px;
+            width: 150px;
+            text-align: center;
+        }
+.stars {
+            color: gold;
+            font-size: 18px;
+        }
