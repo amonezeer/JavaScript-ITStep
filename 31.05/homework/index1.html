@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маркер та Заправний Маркер</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Тестування маркерів</h1>
+        <div>
+            <label for="textInput">Введіть текст для друку:</label>
+            <input type="text" id="textInput" placeholder="Введіть текст">
+        </div>
+        <div>
+            <button onclick="testSimpleMarker()">Тест простого маркера</button>
+            <button onclick="testRefillableMarker()">Тест заправного маркера</button>
+            <button onclick="refillMarker()">Заправити маркер</button>
+        </div>
+        <div id="output"></div>
+        <div id="status"></div>
+    </div>
+    <script src="script1.js"></script>
+</body>
+</html>
