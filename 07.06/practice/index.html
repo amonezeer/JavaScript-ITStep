@@ -3,67 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS - Intro</title>
+    <title></title>
+    <link rel="icon" href="JavaScript-logo.png" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Вступ до JavaScript</h1>
-    <p>
-        У JavaScript ' ; ' вживается як роздилник ( на видминну ряду мов , де це завершення команди ). 
-        Видповидно , не е обовязковою и може заминюватись розивом рядка. У той же час,
-        можливи неочикувана повединка , коли одна команда , роздилена на декилька рядкив , перетворюется на ризни.
-        Для запобигання цього вважается традицийним а) брати таки интструкции у дужки, б) не розривати рядки так , щоб команда була завершеною
-    </p>
-    <p>Неправильно: <code> return 3<br>+ 2;</code></p>
-    <p>Неправильно: <code> return <br>3+ 2;</code></p>
-    <p>Правильно: <code> return (3<br>+ 2);</code></p>
-    <p>Правильно: <code> return 3+<br> 2;</code></p>
-    <p id="out"></p>
-    <p id = "out-block"></p>
-    <script>
-        // Введення / виведення 
-        console.log("Hello,World!"); // а) консоль розробника -  только для Debug 
-        // alert("Hello, world!");  // б ) модальни диалоги ( викна )
-        // в елементи сторинки 
-        out.innerText = "Hello,World!";  // якщо елемент мае ID , то утворюется зминна з таким саме именем . 
-        // Данний пидхид вважается не рекомендованим , тому идентификатори прийнято задавати у kebab-style 
-        const outBlock = document.getElementById("out-block");
-        if(outBlock) { // Неявне перетворення до логичного(Bool) типу .  !!outBlock - явне перетворення
-            outBlock.innerText = "Hello , World!";  
-        } 
-        else{
-            throw " Element #out-block not found"; // Динамична типизация , зокрема , дозволяе передавати у throw довильний обьект  
-        }
-
-        // string
-        x = "the string";  // global змина , видима в усий сторинци
-        x = 'second value'; // видминностей миж '' "" немае 
-        y = `The ${x}`; // интерполявиний рядок ( string )
-        // numbers
-        n = 100500;                  // int
-        n = 1000000000000000000000n; // big number   
-        n = 2n ** 256n;
-        outBlock.innerHTML = `2<sup>256</sup> = ${n}`; 
-        // нецили числа - 56bit на число , решта - спецзначення Nan, -0, Infinity...
-        // !! загалом 64bit , що можна неправильно сприймати при сумисности
-        // з иншими мовами , зокрема SQL 
-        // + традицийне округлення нескинченних дробив ( у бинарний системи )
-        // 0.1 + 0.2 -> 0.30000000000000004 
-        // 0.1 + 0.2 == 0.3 -> false
-
-        // оператори ( управлиння ) 
-        if(y.length % 2 == 0){
-            outBlock.innerHTML += `<br/>Довжина рядка '${y}' парна`;
-        }
-        else{
-            outBlock.innerHTML += `<br/>Довжина рядка '${y}' непарна`;
-        }
-        // switch , ternary , for(i), while
-        let arr = [1,2,3,4,5]; // let - з локализациею ( не видеме за блоком)
-        outBlock.innerHTML += '<br/>';
-        for(let element of arr ) { // for-of -> foreach
-            outBlock.innerHTML += element + ' ';
-        }
-        arr.forEach(element => outBlock.innerHTML += element + ' ');
-    </script>
+    
+     <script src="script.js"></script>
 </body>
 </html>
