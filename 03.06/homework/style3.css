@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.field {
+    width: 50vw;
+    height: 50vh;
+    background: url('soccer-field.jpg') no-repeat center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+}
+
+#ball {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
