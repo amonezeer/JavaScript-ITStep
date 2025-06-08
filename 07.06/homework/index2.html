@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="icon" href="JavaScript-logo.png" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card quiz-card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h1>Тест на знання України</h1>
+            </div>
+            <div class="card-body">
+                <form id="quizForm" class="needs-validation" novalidate>
+                    <div class="question mb-4">
+                        <h4 class="question-title">1) Яка столиця України?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="Київ" required>
+                            <label class="form-check-label">Київ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="Львів">
+                            <label class="form-check-label">Львів</label>
+                        </div>
+                    </div>
+                    <div class="question mb-4">
+                        <h4 class="question-title">2) Який колір має український прапор?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="Синій і жовтий" required>
+                            <label class="form-check-label">Синій і жовтий</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="Червоний і білий">
+                            <label class="form-check-label">Червоний і білий</label>
+                        </div>
+                    </div>
+                    <div class="question mb-4">
+                        <h4 class="question-title">3) Яка найвища гора в Україні?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="Говерла" required>
+                            <label class="form-check-label">Говерла</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="Піп Іван">
+                            <label class="form-check-label">Піп Іван</label>
+                        </div>
+                    </div>
+                    <div class="question mb-4">
+                        <h4 class="question-title">4) Яка річка є найдовшою в Україні?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="Дніпро" required>
+                            <label class="form-check-label">Дніпро</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="Дунай">
+                            <label class="form-check-label">Дунай</label>
+                        </div>
+                    </div>
+                    <div class="question mb-4">
+                        <h4 class="question-title">5) Який офіційний рік заснування Києва?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" value="482" required>
+                            <label class="form-check-label">482</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5" value="988">
+                            <label class="form-check-label">988</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg w-100">Завершити</button>
+                </form>
+                <div id="result" class="alert mt-4" role="alert"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="script2.js"></script>
+</body>
+</html>

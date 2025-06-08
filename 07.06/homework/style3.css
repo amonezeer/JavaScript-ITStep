@@ -1,0 +1,60 @@
+.text-formatting-card {
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f4f7f9, #ffffff);
+    border: 1px solid #e0e7eb;
+}
+
+.card-header {
+    padding: 1.5rem;
+    background: linear-gradient(90deg, #26a69a, #00695c);
+    border-bottom: 1px solid #e0e7eb;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-check {
+    margin-bottom: 10px;
+    padding-left: 2rem;
+}
+
+.form-check-label {
+    font-size: 1.1rem;
+    color: #2d3436;
+}
+
+.form-select, .form-control {
+    border-radius: 8px;
+    border-color: #ced4da;
+}
+
+.btn-coral {
+    background-color: #ff7f50;
+    border-color: #ff7f50;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.btn-coral:hover {
+    background-color: #ff6347;
+    border-color: #ff6347;
+}
+
+#result {
+    display: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8f5e9, #f9fbe7);
+    color: #2f4f4f;
+    border: 1px solid #c8e6c9;
+}
+
+textarea {
+    resize: none;
+    border-radius: 8px;
+    border-color: #ced4da;
+}
