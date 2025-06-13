@@ -5,7 +5,6 @@ document.addEventListener('submit', (e) => {
     window.phonebook.push(data);
     showPhones();
     e.target.reset();
-    // console.log("Submit canceled ");
 });
 
 function inputKeyPressed(e) {
@@ -19,14 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
         ctr.onchange = inputKeyPressed;
     };
     window.phonebook = [
-        {"name": "Петрович", "email": "petrovic@i.ua", "phone": "380979992311", "type": "cellular"},
-        {"name": "Олексійович", "email": "olexeevich@i.ua", "phone": "38098991231", "type": "work"},
-        {"name": "Олегович", "email": "olegovic@gmail.ua", "phone": "380967771177", "type": "cellular"},
+        {"name": "Петрович", "email": "petrovic@i.ua", "phone": "380979992311", "type": "cellular", "password": "Pass123!"},
+        {"name": "Олексійович", "email": "olexeevich@i.ua", "phone": "38098991231", "type": "work", "password": "Work456#"},
+        {"name": "Олегович", "email": "olegovic@gmail.ua", "phone": "380967771177", "type": "cellular", "password": "Home789$"},
     ];
-    showPhones (); 
+    showPhones(); 
     const btnGo = document.getElementById("vars-btn");
     if(!btnGo) throw "#vars-btn not found";
     btnGo.onclick = btnGoClick;
+
+    const togglePassword = document.getElementById("togglePassword");
+    if (!togglePassword) throw "#togglePassword not found";
+    togglePassword.onclick = () => {
+        const passwordInput = document.querySelector('[name="userpassword"]');
+        const icon = togglePassword.querySelector('i');
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        }
+    };
 });
 
 function validateForm(form) {
@@ -41,8 +56,7 @@ function validateForm(form) {
     const cyrPattern = /^[А-ЯЄЇІҐ][а-яєїіґ']+([-\s][А-ЯЄЇІҐ][а-яєїіґ']+)*$/;
     const latPattern = /^([od]')?[A-Z][a-z]+(\s([od]')?[A-Z][a-z]+)*$/;
     if(!(cyrPattern.test(name) || latPattern.test(name))) {
-        setInvalid(nameInput.parentNode.querySelector(".invalid-feedback").innerText = 
-             "Імя має починатись з великої літери та продовжуватись малими");
+        setInvalid(nameInput, "Імя має починатись з великої літери та продовжуватись малими");
         return false;
     }
     const emailInput = form.querySelector('[name="useremail"]')
@@ -53,7 +67,6 @@ function validateForm(form) {
         return false;
     }
 
-
     let phoneInput = form.querySelector('[name="userphone"]');
     let phone = phoneInput.value;
     const phonePattern = /^\+\d{12}$|^\+\d{2}\(\d{3}\)\d{7}$/;
@@ -62,13 +75,21 @@ function validateForm(form) {
         return false;
     }
 
+    let passwordInput = form.querySelector('[name="userpassword"]');
+    let password = passwordInput.value;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/;
+    if (!passwordPattern.test(password)) {
+        setInvalid(passwordInput, "Пароль має містити мінімум 8 символів, включаючи заглавну літеру, цифру та спеціальний символ");
+        return false;
+    }
 
     let type = form.querySelector('[name="phone-type"]').value;
     return {
-    "name" : name,
-    "email": email,
-    "phone": phone,
-    "type": type
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "type": type,
+        "password": password
     };
 }
 
@@ -80,7 +101,7 @@ function setInvalid(input, message) {
 
 function btnGoClick() {
     const vars = document.querySelectorAll('.vars-box:checked');
-    alert("Selected " + [...vars.values().map(v => v.id)].join(','));
+    alert("Selected " + [...vars].map(v => v.id).join(','));
 
     const rate = document.querySelector('.rate:checked');
     if(rate){
@@ -90,13 +111,13 @@ function btnGoClick() {
     }
 }
 
-function showPhones (){
+function showPhones() {
     const container = document.getElementById("phones");
-    if(!container) throw "#Phones not found";
+    if (!container) throw "#Phones not found";
     container.innerHTML = "";
-    for(let phone of window.phonebook){
+    for (let phone of window.phonebook) {
         const item = document.createElement('div');
-        item.innerHTML = `name: ${phone.name}, email: ${phone.email}, phone: ${phone.phone}, type: ${phone.type}`;
+        item.innerHTML = `Name: ${phone.name}, Email: ${phone.email}, Phone: ${phone.phone}, Type: ${phone.type}, Password: ${phone.password}`;
         container.appendChild(item);
     }
 }

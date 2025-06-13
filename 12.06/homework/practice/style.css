@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.toolbar-container {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toolbar-section h4 {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.shape-buttons, .color-buttons {
+    gap: 12px;
+}
+
+.shape-btn, .color-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.shape-btn:hover, .color-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.shape-btn.active, .color-btn.active {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+}
+
+.color-btn {
+    border: 2px solid #ddd;
+}
+
+.canvas-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#canvas {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #fffef2;
+}
+
+.side-labels {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.left-label, .right-label {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    color: purple;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    padding: 10px;
+}
+
+.left-label {
+    left: 10px;
+}
+
+.right-label {
+    right: 10px;
+}
