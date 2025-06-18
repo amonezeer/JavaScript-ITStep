@@ -1,0 +1,90 @@
+body {
+    background-color: #f8fafc;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card {
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card .card-img-top {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.movie-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movie-card .card-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.movie-card .btn {
+    margin-top: auto;
+}
+
+#detailPoster {
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #dddbdb;
+    border-color: #340a61;
+}
+
+.pagination .page-link {
+    color: #570aa9;
+    font-weight: 500;
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .movie-card .card-img-top {
+        height: 300px;
+    }
+    
+    #detailPoster {
+        max-height: 350px;
+    }
+}
