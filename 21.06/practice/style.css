@@ -1,0 +1,41 @@
+#dnd-field{
+    position: relative;
+    border: 2px solid lightgray;
+    height: 50vw;
+    margin: 2%;
+    width: 96%;
+}
+
+.dnd-item{
+    border-radius: 50%;
+    
+    height: 40px;
+    width: 40px;
+    position: absolute;
+}
+
+.maroon {
+    background-color: maroon;
+}
+.lime {
+    background-color: lime;
+}
+.gold {
+    background-color: gold;
+}
+
+#right-block, #left-block{
+    border: 2px solid lightgray;
+    position: absolute;
+    width: 45%;
+    bottom: 0;
+    height: 25%;
+}
+
+#left-block {
+    left: 0;
+}
+
+#right-block {
+    right: 0;
+}

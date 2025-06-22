@@ -1,0 +1,62 @@
+#dnd-field {
+    position: relative;
+    border: 2px solid lightgray;
+    min-height: 200px;
+    margin: 2%;
+    width: 96%;
+    padding-bottom: 30%;
+}
+
+.dnd-item {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    cursor: grab;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.dnd-item.phantom {
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.maroon { background-color: maroon; }
+.lime { background-color: lime; }
+.gold { background-color: gold; }
+.dodgerblue { background-color: dodgerblue; }
+.purple { background-color: purple; }
+.orange { background-color: orange; }
+.pink { background-color: pink; }
+.teal { background-color: teal; }
+
+#right-block, #left-block {
+    border: 2px dashed lightgray;
+    position: absolute;
+    width: 45%;
+    bottom: 10px;
+    height: 30%;
+    overflow: auto;
+}
+
+#left-block {
+    left: 10px;
+}
+
+#right-block {
+    right: 10px;
+}
+
+.drop-zone {
+    transition: background-color 0.2s;
+}
+
+.drop-zone.active {
+    background-color: rgba(0, 255, 0, 0.1);
+}
